@@ -7,6 +7,7 @@ Created on Jan 10, 2016
 '''
 
 import numpy as np
+import writebov as write
 
 
 def initialize(xDim, yDim):
@@ -26,16 +27,16 @@ def update(gOld):
     gNew[:, -1] = gOld[:, -1]
     return gNew
 
-
 def main():
     gOld = initialize(90, 110)
-#     writeBOV(gOld)
+    write.writeBOV(gOld)
 
-    for n in xrange(20000):  # @UnusedVariable
+    for n in xrange(10000):  # @UnusedVariable
         gOld = update(gOld)
-#         if (n + 1) % 100 == 0:
-#             writeBOV(gOld)
+        if (n + 1) % 100 == 0:
+             write.writeBOV(gOld)
     print gOld
 
 if __name__ == '__main__':
     main()
+
